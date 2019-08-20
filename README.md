@@ -1,6 +1,5 @@
-# HexDec [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=flat-square)](https://paypal.me/mnpn03/)
-
-HexDec is a program made in Rust that converts hexadecimal numbers to decimal. HexDec is made in [Rust](https://www.rust-lang.org/).
+# HexDec
+HexDec is a program made in Rust that converts hexadecimal numbers to decimal, and vice versa. HexDec is made in [Rust](https://www.rust-lang.org/).
 
 ### Table of Content
 - [Installation](#installation)
@@ -21,6 +20,7 @@ Then you simply build it by running `cargo build --release`.
 ### Usage
 ```
 $ hexdec <hex to convert>
+$ hexdec -h
 ```
 ### Contribution
 To contribute to the project, simply create a [Pull Request](https://github.com/Mnpn03/HexDec/pulls) or an [Issue](https://github.com/Mnpn03/HexDec/issues).
