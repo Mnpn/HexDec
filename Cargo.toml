@@ -1,7 +1,7 @@
 [package]
 name = "hexdec"
 version = "1.2.0"
-authors = ["Martin Persson <mnpn03@gmail.com>"]
+authors = ["Martin Persson <mnpn03@icloud.com>"]
 
 [dependencies]
 clap = "2.29.2"

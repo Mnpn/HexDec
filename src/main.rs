@@ -11,7 +11,7 @@ const NUMBERS_IN_LINE:   usize = 32;
 const LINE_HEX_CAPACITY: usize = 2 * NUMBERS_IN_LINE + NUMBERS_IN_LINE-1;
 const LINE_CAPACITY:     usize = LINE_HEX_CAPACITY + 3 + NUMBERS_IN_LINE;
 
-fn main() -> Result<(), Box<Error>> {
+fn main() -> Result<(), Box<dyn Error>> {
     // clap app creation, with macros that read project information from Cargo.toml.
     let matches = App::new(crate_name!())
         .version(crate_version!())
@@ -37,7 +37,7 @@ fn main() -> Result<(), Box<Error>> {
         let mut input = matches.value_of("value").unwrap();
 
         if matches.is_present("file") {
-            let file: Box<Iterator<Item = io::Result<u8>>> = if input == "-" {
+            let file: Box<dyn Iterator<Item = io::Result<u8>>> = if input == "-" {
                 Box::new(io::stdin().bytes())
             } else {
                 Box::new(BufReader::new(File::open(input)?).bytes())
@@ -49,7 +49,7 @@ fn main() -> Result<(), Box<Error>> {
             fn flush(line: &mut String, buffer: &[u8]) {
                 line.push_str(" | ");
                 for byte in buffer {
-                    if let 0x20...0x7e = *byte {
+                    if let 0x20..=0x7e = *byte {
                         line.push(*byte as char);
                     } else {
                         line.push('.');
